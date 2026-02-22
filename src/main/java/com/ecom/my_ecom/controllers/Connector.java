@@ -29,11 +29,13 @@ import com.ecom.my_ecom.resources.Resourcenotfound;
 public class Connector {
 	@Autowired
 	private Repository repo;
+
 	@Autowired
 	private PasswordEncoder password;
 	
 	@GetMapping
 	public List<myentity> getusers() {
+		
 		return repo.findAll() ;
 	}
 	@PostMapping
@@ -47,8 +49,10 @@ public class Connector {
 	}
 	@GetMapping("/{id}")
 	public myentity getbyid(@PathVariable Long id) {
+
 		return repo.findById(id).orElseThrow(()->new Resourcenotfound("id not found in "+id));
 		
+
 	}
 	@PutMapping("/{id}")
 	public myentity updatedata(@PathVariable Long id ,@RequestBody myentity us) {

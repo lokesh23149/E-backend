@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ecom.my_ecom.entities.orders;
 import com.ecom.my_ecom.entities.myentity;
+import com.ecom.my_ecom.entities.orders;
 import com.ecom.my_ecom.productrepository.Repository;
 import com.ecom.my_ecom.reviewsdao.ordercreateddto;
 import com.ecom.my_ecom.reviewsdao.requestorder;
@@ -55,7 +55,9 @@ public class ordercontroller {
 
 	@GetMapping("/user/orders")
 	public ResponseEntity<?> getUserOrders() {
+
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		
 		if (auth == null || !auth.isAuthenticated() || "anonymousUser".equals(auth.getPrincipal())) {
 			return ResponseEntity.ok(List.of());
 		}

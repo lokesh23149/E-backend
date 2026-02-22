@@ -64,7 +64,7 @@ public class productcontrol {
 			@RequestParam(required = false) Double minPrice,
 			@RequestParam(required = false) Double maxPrice,
 			@RequestParam(required = false) String keywords,
-			@RequestParam(required = false) Double ratings) {
+			@RequestParam(required = false) Double ratings){
 		return pro_service.searchproduct(category, minPrice, maxPrice, keywords, ratings);
 	}
 
